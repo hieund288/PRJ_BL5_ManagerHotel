@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>felicity</title>
+        <title>Felicity</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -48,7 +48,7 @@
                             <div class="full">
                                 <div class="center-desk">
                                     <div class="logo">
-                                        <a href="index.html"><img src="assets/images/logo.png" alt="#" /></a>
+                                        <a href="home"><img src="assets/images/logo.png" alt="#" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                             <a class="nav-link" href="#contact">Contact us</a>
                                         </li>
                                     </ul>
-                                    <div class="sign_btn"><a href="#">Sign in</a></div>
+                                    <div class="sign_btn"><a href="login"><i class="fa fa-user-circle" aria-hidden="true"></i> Sign in</a></div>
                                 </div>
                             </nav>
                         </div>

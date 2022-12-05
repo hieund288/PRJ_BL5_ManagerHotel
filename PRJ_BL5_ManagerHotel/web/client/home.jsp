@@ -22,7 +22,7 @@
                             <div class="padding_lert">
                                 <h1>Đặt phòng khách sạn linh hoạt </h1>
                                 <span>Giá tốt nhất</span>
-                                <p>Go2joy luôn đem tới trải nghiệm tốt nhất tới người dùng</p>
+                                <p>Felicity luôn đem tới trải nghiệm tốt nhất tới người dùng</p>
                                 <a href="#">Đặt phòng ngay</a>
                             </div>
                         </div>
@@ -69,9 +69,8 @@
                     <div class="col-md-6">
                         <div class="choose_box">
                             <div class="titlepage">
-                                <h2><span class="text_norlam">Go2joy room</span> <br></h2>
-                                <i class="fa fa-facebook-official" ></i>
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <h2><span class="text_norlam">Felicity room</span> <br></h2>
+
                             </div>
                             <p>Căn phòng đặc biệt nhất dành cho Joyer</p>
                             <a class="read_more" href="#">Tiếp tục</a>
