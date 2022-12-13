@@ -20,8 +20,7 @@ import model.Room;
  */
 public class RoomDAO extends DBContext {
 
-    public Hotel getHotelbyID(int aid) {
-        Hotel hotel = new Hotel();
+    public ArrayList<Room> getHotelDetails(int aid) {
         ArrayList<Room> room = new ArrayList<>();
         try {
             String sql = "SELECT \n"
@@ -35,35 +34,36 @@ public class RoomDAO extends DBContext {
             stm.setInt(1, aid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
+                Hotel h = new Hotel();
                 Room r = new Room();
 
-                hotel.setHid(rs.getInt("hid"));
-                hotel.setName(rs.getString("name"));
-                hotel.setAdress(rs.getString("adress"));
-                hotel.setPhone(rs.getString("phone"));
-                hotel.setDescription(rs.getString("description"));
-                hotel.setImageURL(rs.getString("imageURL"));
+                h.setHid(rs.getInt("hid"));
+                h.setName(rs.getString("name"));
+                h.setAdress(rs.getString("adress"));
+                h.setPhone(rs.getString("phone"));
+                h.setDescription(rs.getString("description"));
+                h.setImageURL(rs.getString("imageURL"));
 
                 r.setRid(rs.getInt("rid"));
                 r.setHotelid(rs.getInt("hotelID"));
-                r.setName(rs.getString("name"));
+                r.setRname(rs.getString("name"));
                 r.setRoomtype(rs.getString("roomtype"));
                 r.setQuantity(rs.getInt("quantity"));
                 r.setPrice(rs.getInt("price"));
                 r.setDescription(rs.getString("description"));
                 r.setStatus(rs.getBoolean("status"));
                 r.setImageURL((rs.getString("imageURL")));
+                r.setHotel(h);
                 room.add(r);
             }
-            hotel.setRooms(room);
         } catch (SQLException ex) {
         }
-        return hotel;
+        return room;
     }
 
     public static void main(String[] args) {
         RoomDAO pro = new RoomDAO();
-        System.out.println("" + pro.getHotelbyID(4));
+        System.out.println("" + pro.getHotelDetails(5));
     }
 
 }

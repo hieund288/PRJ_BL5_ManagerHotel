@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Hotel;
+import model.Room;
 
 /**
  *
@@ -35,7 +36,7 @@ public class HotelDAO extends DBContext {
                 h.setPhone(rs.getString("phone"));
                 h.setDescription(rs.getString("description"));
                 h.setImageURL(rs.getString("imageURL"));
-                h.setType(rs.getString(8));
+                h.setTypeid(rs.getString(2));
                 hotel.add(h);
             }
         } catch (SQLException ex) {

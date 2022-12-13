@@ -32,7 +32,7 @@
                                     <h5 class="name">
 
                                         <a href="room?id=${a.hid}">
-                                            ${a.name} <span> ${a.type}</span>
+                                            ${a.name} <span> ${a.typeid}</span>
                                         </a>
                                     </h5>
                                     <p class="price-container">

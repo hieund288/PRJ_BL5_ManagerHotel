@@ -12,7 +12,7 @@ public class Room {
 
     private int rid;
     private int hotelid;
-    private String name;
+    private String rname;
     private String roomtype;
     private int quantity;
     private int price;
@@ -21,27 +21,20 @@ public class Room {
     private String imageURL;
     private Hotel hotel;
 
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
-
-    public Room() {
-    }
-
-    public Room(int rid, int hotelid, String name, String roomtype, int quantity, int price, String description, boolean status, String imageURL) {
+    public Room(int rid, int hotelid, String rname, String roomtype, int quantity, int price, String description, boolean status, String imageURL, Hotel hotel) {
         this.rid = rid;
         this.hotelid = hotelid;
-        this.name = name;
+        this.rname = rname;
         this.roomtype = roomtype;
         this.quantity = quantity;
         this.price = price;
         this.description = description;
         this.status = status;
         this.imageURL = imageURL;
+        this.hotel = hotel;
+    }
+
+    public Room() {
     }
 
     public int getRid() {
@@ -60,12 +53,12 @@ public class Room {
         this.hotelid = hotelid;
     }
 
-    public String getName() {
-        return name;
+    public String getRname() {
+        return rname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRname(String rname) {
+        this.rname = rname;
     }
 
     public String getRoomtype() {
@@ -116,9 +109,18 @@ public class Room {
         this.imageURL = imageURL;
     }
 
-    @Override
-    public String toString() {
-        return "Room{" + "rid=" + rid + ", hotelid=" + hotelid + ", name=" + name + ", roomtype=" + roomtype + ", quantity=" + quantity + ", price=" + price + ", description=" + description + ", status=" + status + ", imageURL=" + imageURL + '}';
+    public Hotel getHotel() {
+        return hotel;
     }
 
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" + "rid=" + rid + ", hotelid=" + hotelid + ", rname=" + rname + ", roomtype=" + roomtype + ", quantity=" + quantity + ", price=" + price + ", description=" + description + ", status=" + status + ", imageURL=" + imageURL + ", hotel=" + hotel + '}';
+    }
+
+    
 }

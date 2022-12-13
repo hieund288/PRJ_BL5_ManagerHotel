@@ -33,7 +33,7 @@ public class AccountDAO extends DBContext {
         return null;
     }
 
-    public ArrayList<Account> listAccount() {
+    public ArrayList<Account> listAccount() {   
         ArrayList<Account> account = new ArrayList<>();
         try {
             String sql = "select * from account";

@@ -19,21 +19,14 @@ public class Hotel {
     private String phone;
     private String description;
     private String imageURL;
-    private String type;
+    private String typeid;
     private ArrayList<Room> rooms;
-
-    public ArrayList<Room> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(ArrayList<Room> rooms) {
-        this.rooms = rooms;
-    }
+    private ArrayList<Type> types;
 
     public Hotel() {
     }
 
-    public Hotel(int hid, String name, String adress, String city, String phone, String description, String imageURL, String type) {
+    public Hotel(int hid, String name, String adress, String city, String phone, String description, String imageURL, String typeid, ArrayList<Room> rooms, ArrayList<Type> types) {
         this.hid = hid;
         this.name = name;
         this.adress = adress;
@@ -41,7 +34,9 @@ public class Hotel {
         this.phone = phone;
         this.description = description;
         this.imageURL = imageURL;
-        this.type = type;
+        this.typeid = typeid;
+        this.rooms = rooms;
+        this.types = types;
     }
 
     public int getHid() {
@@ -100,18 +95,34 @@ public class Hotel {
         this.imageURL = imageURL;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeid() {
+        return typeid;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeid(String typeid) {
+        this.typeid = typeid;
+    }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(ArrayList<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public ArrayList<Type> getTypes() {
+        return types;
+    }
+
+    public void setTypes(ArrayList<Type> types) {
+        this.types = types;
     }
 
     @Override
     public String toString() {
-        return "Hotel{" + "hid=" + hid + ", name=" + name + ", adress=" + adress + ", city=" + city + ", phone=" + phone + ", description=" + description + ", imageURL=" + imageURL + ", type=" + type + ", rooms=" + rooms + '}';
+        return "Hotel{" + "hid=" + hid + ", name=" + name + ", adress=" + adress + ", city=" + city + ", phone=" + phone + ", description=" + description + ", imageURL=" + imageURL + ", typeid=" + typeid + ", rooms=" + rooms + ", types=" + types + '}';
     }
 
- 
+    
 }

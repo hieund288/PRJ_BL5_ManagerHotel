@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import model.Hotel;
 import model.Room;
 
 /**
@@ -31,8 +30,8 @@ public class RoomController extends HttpServlet {
         // req.setAttribute("sessions", sessions);
         int aid = Integer.parseInt(req.getParameter("id"));
         RoomDAO roomdao = new RoomDAO();
-        Hotel hotel = roomdao.getHotelbyID(aid);
-        req.setAttribute("hotel", hotel);
+        ArrayList<Room> room = roomdao.getHotelDetails(aid);
+        req.setAttribute("room", room);
         req.getRequestDispatcher("client/room.jsp").forward(req, resp);
     }
     
