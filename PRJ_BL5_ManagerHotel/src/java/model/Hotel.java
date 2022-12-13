@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author l
@@ -17,13 +19,21 @@ public class Hotel {
     private String phone;
     private String description;
     private String imageURL;
-    private int typeID;
-    private int ratingID;
+    private String type;
+    private ArrayList<Room> rooms;
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(ArrayList<Room> rooms) {
+        this.rooms = rooms;
+    }
 
     public Hotel() {
     }
 
-    public Hotel(int hid, String name, String adress, String city, String phone, String description, String imageURL, int typeID, int ratingID) {
+    public Hotel(int hid, String name, String adress, String city, String phone, String description, String imageURL, String type) {
         this.hid = hid;
         this.name = name;
         this.adress = adress;
@@ -31,8 +41,7 @@ public class Hotel {
         this.phone = phone;
         this.description = description;
         this.imageURL = imageURL;
-        this.typeID = typeID;
-        this.ratingID = ratingID;
+        this.type = type;
     }
 
     public int getHid() {
@@ -91,25 +100,18 @@ public class Hotel {
         this.imageURL = imageURL;
     }
 
-    public int getTypeID() {
-        return typeID;
+    public String getType() {
+        return type;
     }
 
-    public void setTypeID(int typeID) {
-        this.typeID = typeID;
-    }
-
-    public int getRatingID() {
-        return ratingID;
-    }
-
-    public void setRatingID(int ratingID) {
-        this.ratingID = ratingID;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return "Hotel{" + "hid=" + hid + ", name=" + name + ", adress=" + adress + ", city=" + city + ", phone=" + phone + ", description=" + description + ", imageURL=" + imageURL + ", typeID=" + typeID + ", ratingID=" + ratingID + '}';
+        return "Hotel{" + "hid=" + hid + ", name=" + name + ", adress=" + adress + ", city=" + city + ", phone=" + phone + ", description=" + description + ", imageURL=" + imageURL + ", type=" + type + ", rooms=" + rooms + '}';
     }
 
+ 
 }

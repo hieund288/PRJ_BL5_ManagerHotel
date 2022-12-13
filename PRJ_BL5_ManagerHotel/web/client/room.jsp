@@ -13,26 +13,27 @@
 <body>
     <section class="jumbotron text-center" style=" background-color: #D86515;">
     </section>
-    
-    <h1></h1> 
+    ${hotel.name}
     <div class="container">
-        <c:forEach items="${listHotel}" var="a">
-            <div class ="row">
+        <c:forEach items="${hotel.rooms}" var="a">
+            ${a}
+            <br>
+<!--            <div class ="row">
                 <div class="col-xs-12 col-md-12">
-                    <!-- product -->
+                     product 
                     <div class="product-content product-wrap clearfix">
                         <div class="row">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="product-image"> 
-                                    <img src="${a.imageURL}"  class="img-responsive"> 
+                                    <img src="${a.hotel.imageURL}"  class="img-responsive"> 
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="product-deatil">
                                     <h5 class="name">
 
-                                        <a href="room?id=${a.hid}">
-                                            ${a.name} <span> ${a.type}</span>
+                                        <a href="">
+                                            ${a.hotel.name} <span> ${a.hotel.type}</span>
                                         </a>
                                     </h5>
                                     <p class="price-container">
@@ -53,16 +54,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end product -->
+                     end product 
                 </div>
-            </div>
+            </div>-->
         </c:forEach>
-
-
-
 
     </div>
 </body>
 
 <%@include file="../navigator/footer.jsp" %>
-

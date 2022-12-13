@@ -4,32 +4,31 @@
  */
 package client.controller;
 
-import dao.HotelDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import model.Hotel;
 
 /**
  *
  * @author l
  */
-public class HotelController extends HttpServlet {
+public class LogoutController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        ArrayList<Hotel> listhotel = new HotelDAO().listHotel();
-        // set Attribute truyền lên jsp để gọi 
-        req.setAttribute("listHotel", listhotel);
-        req.getRequestDispatcher("client/hotel.jsp").forward(req, resp);
+        HttpSession session = req.getSession();
+        if (session.getAttribute("account") != null) {
+            session.removeAttribute("account");
+            resp.sendRedirect("home");
+        }
     }
 
 }

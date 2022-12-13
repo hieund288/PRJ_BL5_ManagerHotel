@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import model.Account;
 
 /**
@@ -28,28 +29,29 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        String name = req.getParameter("name");
+        
+        
         AccountDAO accdao = new AccountDAO();
         Account acc = accdao.check(username, password);
         HttpSession session = req.getSession();
         session.setAttribute("account", acc);
-        req.getSession().setAttribute("acc", acc);
-
+        
+        ArrayList<Account> account = accdao.listAccount();
+        session.setAttribute("name", account);
+        
         if (acc == null) {
             req.setAttribute("error", "Account not existed!");
             req.getRequestDispatcher("client/login.jsp").forward(req, resp);
         } else {
             if (acc.getRoleID() == 1) {
-                req.getRequestDispatcher("client/home.jsp").forward(req, resp);
+                resp.sendRedirect("home");
             } else {
-                req.getRequestDispatcher("client/admin.jsp").forward(req, resp);
+                resp.sendRedirect("admin");
             }
             /// thiếu getRoleAccount, chưa insert vào servlet và dao 
-
 //            request.getRequestDispatcher("client/home.jsp").forward(request, response);
 //            response.sendRedirect("home");
         }
-
     }
 
 }

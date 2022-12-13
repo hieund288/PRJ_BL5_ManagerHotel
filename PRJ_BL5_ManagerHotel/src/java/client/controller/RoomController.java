@@ -4,7 +4,7 @@
  */
 package client.controller;
 
-import dao.HotelDAO;
+import dao.RoomDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,24 +12,28 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import model.Hotel;
+import model.Room;
 
 /**
  *
  * @author l
  */
-public class HotelController extends HttpServlet {
-
+public class RoomController extends HttpServlet {
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     }
-
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        ArrayList<Hotel> listhotel = new HotelDAO().listHotel();
-        // set Attribute truyền lên jsp để gọi 
-        req.setAttribute("listHotel", listhotel);
-        req.getRequestDispatcher("client/hotel.jsp").forward(req, resp);
+        // SessionDBContext sessionDB = new SessionDBContext();
+        // ArrayList<Session> sessions = sessionDB.getListSessionStudent(sid, from, to);
+        // req.setAttribute("sessions", sessions);
+        int aid = Integer.parseInt(req.getParameter("id"));
+        RoomDAO roomdao = new RoomDAO();
+        Hotel hotel = roomdao.getHotelbyID(aid);
+        req.setAttribute("hotel", hotel);
+        req.getRequestDispatcher("client/room.jsp").forward(req, resp);
     }
-
+    
 }

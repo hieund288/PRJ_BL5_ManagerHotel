@@ -12,6 +12,18 @@
         <servlet-name>HotelController</servlet-name>
         <servlet-class>client.controller.HotelController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>client.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <servlet-class>client.controller.CheckoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RoomController</servlet-name>
+        <servlet-class>client.controller.RoomController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>HotelController</servlet-name>
         <url-pattern>/hotel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomController</servlet-name>
+        <url-pattern>/room</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
