@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Hotel {
 
     private int hid;
-    private String name;
+    private String hname;
     private String adress;
     private String city;
     private String phone;
@@ -26,9 +26,9 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(int hid, String name, String adress, String city, String phone, String description, String imageURL, String typeid, ArrayList<Room> rooms, ArrayList<Type> types) {
+    public Hotel(int hid, String hname, String adress, String city, String phone, String description, String imageURL, String typeid, ArrayList<Room> rooms, ArrayList<Type> types) {
         this.hid = hid;
-        this.name = name;
+        this.hname = hname;
         this.adress = adress;
         this.city = city;
         this.phone = phone;
@@ -47,12 +47,12 @@ public class Hotel {
         this.hid = hid;
     }
 
-    public String getName() {
-        return name;
+    public String getHname() {
+        return hname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setHname(String hname) {
+        this.hname = hname;
     }
 
     public String getAdress() {
@@ -121,8 +121,10 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" + "hid=" + hid + ", name=" + name + ", adress=" + adress + ", city=" + city + ", phone=" + phone + ", description=" + description + ", imageURL=" + imageURL + ", typeid=" + typeid + ", rooms=" + rooms + ", types=" + types + '}';
+        return "Hotel{" + "hid=" + hid + ", hname=" + hname + ", adress=" + adress + ", city=" + city + ", phone=" + phone + ", description=" + description + ", imageURL=" + imageURL + ", typeid=" + typeid + ", rooms=" + rooms + ", types=" + types + '}';
     }
+    
+    
 
     
 }

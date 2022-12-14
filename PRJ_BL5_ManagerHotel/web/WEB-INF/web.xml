@@ -24,6 +24,10 @@
         <servlet-name>RoomController</servlet-name>
         <servlet-class>client.controller.RoomController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>admin.controller.AdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>RoomController</servlet-name>
         <url-pattern>/room</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -22,21 +22,21 @@ public class HotelDAO extends DBContext {
     public ArrayList<Hotel> listHotel() {
         ArrayList<Hotel> hotel = new ArrayList<>();
         try {
-            String sql = "SELECT hotel.hid , hotel.[name], hotel.adress, hotel.city, hotel.phone, hotel.description ,hotel.imageURL, [type].[name]\n"
+            String sql = "SELECT hotel.hid , hotel.[name], hotel.adress, hotel.city, hotel.phone, hotel.description ,hotel.imageURL, type.name\n"
                     + "FROM hotel\n"
-                    + "INNER JOIN [type] ON hotel.hid = [type].tid;";
+                    + "left JOIN [type] ON hotel.typeID = [type].tid;";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Hotel h = new Hotel();
                 h.setHid(rs.getInt("hid"));
-                h.setName(rs.getString("name"));
+                h.setHname(rs.getString("name"));
                 h.setAdress(rs.getString("adress"));
                 h.setCity(rs.getString("city"));
                 h.setPhone(rs.getString("phone"));
                 h.setDescription(rs.getString("description"));
                 h.setImageURL(rs.getString("imageURL"));
-                h.setTypeid(rs.getString(2));
+                h.setTypeid(rs.getString(8));
                 hotel.add(h);
             }
         } catch (SQLException ex) {

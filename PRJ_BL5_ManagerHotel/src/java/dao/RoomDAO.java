@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Hotel;
 import model.Room;
+import model.Type;
 
 /**
  *
@@ -24,21 +25,26 @@ public class RoomDAO extends DBContext {
         ArrayList<Room> room = new ArrayList<>();
         try {
             String sql = "SELECT \n"
-                    + "hotel.hid,hotel.name, hotel.adress, hotel.phone, hotel.description, hotel.imageURL, \n"
-                    + "room.rid, room.hotelID, room.name, room.roomtype, room.quantity, room.price, \n"
-                    + "room.description, room.status, room.imageURL\n"
+                    + "hotel.hid, hotel.adress, hotel.phone, hotel.description, hotel.imageURL, \n"
+                    + "room.rid, room.hotelID , hotel.name as hname, room.name as rname, room.roomtype, room.quantity, room.price, \n"
+                    + "room.description as rdescription, room.status, room.imageURL as rimageURL,\n"
+                    + "type.name, type.tid\n"
                     + "FROM hotel\n"
                     + "INNER JOIN room ON hotel.hid = room.hotelID\n"
-                    + "where room.hotelid=?;";
+                    + "INNER join type on hotel.typeid = type.tid\n"
+                    + "where room.hotelid=?\n"
+                    + "order by room.rid";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, aid);
+           
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Hotel h = new Hotel();
                 Room r = new Room();
+                Hotel h = new Hotel();
+                Type t = new Type();
 
                 h.setHid(rs.getInt("hid"));
-                h.setName(rs.getString("name"));
+                h.setHname(rs.getString("name"));
                 h.setAdress(rs.getString("adress"));
                 h.setPhone(rs.getString("phone"));
                 h.setDescription(rs.getString("description"));
@@ -46,24 +52,32 @@ public class RoomDAO extends DBContext {
 
                 r.setRid(rs.getInt("rid"));
                 r.setHotelid(rs.getInt("hotelID"));
-                r.setRname(rs.getString("name"));
+                r.setRname(rs.getString("rname"));
                 r.setRoomtype(rs.getString("roomtype"));
                 r.setQuantity(rs.getInt("quantity"));
                 r.setPrice(rs.getInt("price"));
-                r.setDescription(rs.getString("description"));
+                r.setRdescription(rs.getString("rdescription"));
                 r.setStatus(rs.getBoolean("status"));
-                r.setImageURL((rs.getString("imageURL")));
+                r.setRimageURL((rs.getString("rimageURL")));
                 r.setHotel(h);
+
+                t.setTid(rs.getInt("tid"));
+                t.setName(rs.getString("name"));
+                r.setType(t);
+
                 room.add(r);
             }
         } catch (SQLException ex) {
         }
         return room;
     }
+    
 
     public static void main(String[] args) {
         RoomDAO pro = new RoomDAO();
-        System.out.println("" + pro.getHotelDetails(5));
+        System.out.println("" + pro.getHotelDetails(4));
     }
+
+   
 
 }

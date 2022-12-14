@@ -10,6 +10,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import model.Room;
 
@@ -17,23 +21,21 @@ import model.Room;
  *
  * @author l
  */
-public class RoomController extends HttpServlet {
+public class SortController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        int aid = Integer.parseInt(req.getParameter("id"));
+//        String sort = req.getParameter("sort");
+//        //String dsc = req.getParameter("opDsc");
+//        RoomDAO roomdao = new RoomDAO();
+//        ArrayList<Room> room = roomdao.getHotelDetails(aid,sort);
+
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // SessionDBContext sessionDB = new SessionDBContext();
-        // ArrayList<Session> sessions = sessionDB.getListSessionStudent(sid, from, to);
-        // req.setAttribute("sessions", sessions);
-        int aid = Integer.parseInt(req.getParameter("id"));
-        String sort = req.getParameter("sort");
-        RoomDAO roomdao = new RoomDAO();
-        ArrayList<Room> room = roomdao.getHotelDetails(aid);
-        req.setAttribute("room", room);
-        req.getRequestDispatcher("client/room.jsp").forward(req, resp);
+
     }
 
 }

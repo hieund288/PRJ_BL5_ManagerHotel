@@ -64,5 +64,4 @@ public class Type {
         return "Type{" + "tid=" + tid + ", name=" + name + ", hotel=" + hotel + ", rooms=" + rooms + '}';
     }
 
-    
 }
