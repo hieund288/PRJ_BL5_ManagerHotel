@@ -29,9 +29,19 @@ public class RoomController extends HttpServlet {
         // ArrayList<Session> sessions = sessionDB.getListSessionStudent(sid, from, to);
         // req.setAttribute("sessions", sessions);
         int aid = Integer.parseInt(req.getParameter("id"));
-        String sort = req.getParameter("sort");
         RoomDAO roomdao = new RoomDAO();
         ArrayList<Room> room = roomdao.getHotelDetails(aid);
+        if (req.getParameter("opAsc") != null) {
+            String sort = req.getParameter("opAsc");
+            if (sort.equals("A")) {
+                room.sort((t1, t2) -> (t1.getPrice() > t2.getPrice()) ? -1 : 1);
+            } else {
+                room.sort((t1, t2) -> (t1.getPrice() < t2.getPrice()) ? -1 : 1);
+            }
+            req.setAttribute("opAsc", sort.equals("A"));
+        }
+
+        req.setAttribute("roomId", aid);
         req.setAttribute("room", room);
         req.getRequestDispatcher("client/room.jsp").forward(req, resp);
     }

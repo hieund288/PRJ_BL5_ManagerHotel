@@ -43,13 +43,7 @@
                                 <div class="description">
                                     <p>${a.description}</p>
                                 </div>
-                                <div class="product-info smart-form">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-6"> 
-                                            <a href="checkout" class="btn btn-success">Book now</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                 
                             </div>
                         </div>
                     </div>

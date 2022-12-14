@@ -15,17 +15,26 @@
     </section>
 
     <div class ="row">
-        <div class="col-xs-12 col-md-12">
-            <form action="sort" method="POST" >
-                <select name="sort">
-                    <option name ="opAsc" value="A">Asc</option>
-                    
-                    <option name ="opDsc" value="B">Dsc</option>
+        <div class=" col-md-12">
+            <form id="checkRoom" action="room" method="GET" >
+                <input type="text" name="id" hidden value="${roomId}"/>
+                <select hidden  name="opAsc" onchange="check()">
+                    <option <c:if test="${opAsc}">
+                            selected
+                        </c:if>  value="A">Dsc</option>
+                    <option <c:if test="${!opAsc}"> 
+                            selected
+                        </c:if>   value="B">Asc</option>
                 </select>
+             
             </form>
         </div>
     </div>
-
+    <script>
+        function check() {
+            document.getElementById("checkRoom").submit();
+        }
+    </script>
 
     <c:forEach items="${room}" var="a">
         <div class ="row">
@@ -46,7 +55,7 @@
                                     </a>
                                 </h5>
                                 <p class="price-container">
-                                    <span>${a.price}$/1h</span>
+                                    <span>${a.price}$/1d</span>
                                 </p>
                                 <span class="tag1"></span> 
                             </div>
