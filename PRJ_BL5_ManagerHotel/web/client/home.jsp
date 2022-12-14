@@ -23,7 +23,7 @@
                                 <h1>Đặt phòng khách sạn linh hoạt </h1>
                                 <span>Giá tốt nhất</span>
                                 <p>Felicity luôn đem tới trải nghiệm tốt nhất tới người dùng</p>
-                                <a href="#">Đặt phòng ngay</a>
+                                <a href="hotel">Đặt phòng ngay <h1></h1></a>
                             </div>
                         </div>
                     </div>
@@ -32,6 +32,7 @@
         </section>
         <!-- end banner -->
         <!-- form_lebal -->
+        
         <section>
             <div class="container">
                 <div class="row">

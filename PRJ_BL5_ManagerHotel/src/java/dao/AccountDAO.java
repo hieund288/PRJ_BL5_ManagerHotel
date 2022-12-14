@@ -8,8 +8,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Account;
+import model.Booking;
 import model.Hotel;
+import model.Room;
 
 /**
  *
@@ -25,7 +29,9 @@ public class AccountDAO extends DBContext {
             st.setString(2, password);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                return new Account(username, password, rs.getInt("roleID"));
+                Account a = new Account(username, password, rs.getInt("roleID"));
+                a.setAid(rs.getInt("aid"));
+                return a;
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -33,7 +39,7 @@ public class AccountDAO extends DBContext {
         return null;
     }
 
-    public ArrayList<Account> listAccount() {   
+    public ArrayList<Account> listAccount() {
         ArrayList<Account> account = new ArrayList<>();
         try {
             String sql = "select * from account";
@@ -58,10 +64,10 @@ public class AccountDAO extends DBContext {
     }
 
     public static void main(String[] args) {
-//        String a = "hieu";
-//        String b = "hieu";
+        String a = "dat";
+        String b = "dat";
         AccountDAO acc = new AccountDAO();
-        System.out.println("" + acc.listAccount());
+        System.out.println("" + acc.check(a, b));
 
     }
 }

@@ -29,16 +29,19 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        
-        
+
         AccountDAO accdao = new AccountDAO();
         Account acc = accdao.check(username, password);
         HttpSession session = req.getSession();
         session.setAttribute("account", acc);
-        
-        ArrayList<Account> account = accdao.listAccount();
-        session.setAttribute("name", account);
-        
+
+//        int cid = Integer.parseInt(req.getParameter("id"));
+//        ArrayList<Account> acid = accdao.getAccountbyID(cid);
+//        req.setAttribute("acid", acid);
+
+//        int pid = Integer.parseInt(req.getParameter("id"));
+//        Account account = accdao.getAccountById(pid);
+//        session.setAttribute("accountid", account);
         if (acc == null) {
             req.setAttribute("error", "Account not existed!");
             req.getRequestDispatcher("client/login.jsp").forward(req, resp);
