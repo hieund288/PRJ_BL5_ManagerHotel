@@ -74,7 +74,7 @@ public class RoomDAO extends DBContext {
         return room;
     }
 
-    public ArrayList<Booking> getHotelDetailsbyRoom(int pid) {
+    public ArrayList<Booking> getHotelDetailsbyRoom(int aid) {
         ArrayList<Booking> book = new ArrayList<>();
         try {
             String sql = "SELECT Account.aid, Account.Name, \n"
@@ -85,7 +85,7 @@ public class RoomDAO extends DBContext {
                     + "INNER JOIN Room ON Booking.roomID = Room.rid\n"
                     + "where Account.aid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, pid);
+            stm.setInt(1, aid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
 

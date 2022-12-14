@@ -85,7 +85,7 @@
                                                         <i class="fa fa-user-circle" aria-hidden="true"></i> ${account.username}
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a  class="dropdown-item" href="profile?id=${account.aid}"> Xem hồ sơ </a>
+                                                        <a  class="dropdown-item" href="profile"> Xem hồ sơ </a>
                                                         <a  class="dropdown-item" href="logout"> Đăng xuất </a>
                                                         <a  class="dropdown-item" href="change"> Đổi mật khẩu </a>
                                                     </div>

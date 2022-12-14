@@ -32,30 +32,18 @@
         </section>
         <!-- end banner -->
         <!-- form_lebal -->
-        
+
         <section>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <form class="form_book">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <label class="date">Địa điểm</label>
                                     <input class="book_n" placeholder="Bạn muốn đi đâu" type="text" name="">
                                 </div>
-                                <div class="col-md-2">
-                                    <label class="date">Nhận phòng </label>
-                                    <input class="book_n"  type="date" >
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="date">Trả phòng</label>
-                                    <input class="book_n"  type="date" >
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="date">Khách</label>
-                                    <input class="book_n" placeholder="Số lượng" type="type" name="2">
-                                </div>
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <button class="book_btn">Tìm kiếm</button>
                                 </div>
                             </div>

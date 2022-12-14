@@ -38,7 +38,6 @@ public class LoginController extends HttpServlet {
 //        int cid = Integer.parseInt(req.getParameter("id"));
 //        ArrayList<Account> acid = accdao.getAccountbyID(cid);
 //        req.setAttribute("acid", acid);
-
 //        int pid = Integer.parseInt(req.getParameter("id"));
 //        Account account = accdao.getAccountById(pid);
 //        session.setAttribute("accountid", account);

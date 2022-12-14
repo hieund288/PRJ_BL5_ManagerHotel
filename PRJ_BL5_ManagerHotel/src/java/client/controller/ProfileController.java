@@ -9,8 +9,10 @@ import dao.RoomDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Account;
 import model.Booking;
 import model.Room;
 
@@ -18,20 +20,23 @@ import model.Room;
  *
  * @author l
  */
-public class ProfileController extends BaseAuthenticationController{
+public class ProfileController extends BaseAuthenticationController {
 
     @Override
     protected void processPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-   }
+
+    }
 
     @Override
     protected void processGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int pid = Integer.parseInt(req.getParameter("id"));
+        HttpSession session = req.getSession();
+        Account acc = (Account) session.getAttribute("account");
+        int aid = acc.getAid();
         RoomDAO roomdao = new RoomDAO();
-        ArrayList<Booking> book = roomdao.getHotelDetailsbyRoom(pid);
+        ArrayList<Booking> book = roomdao.getHotelDetailsbyRoom(aid);
         req.setAttribute("book", book);
+
         req.getRequestDispatcher("client/profile.jsp").forward(req, resp);
     }
-    
+
 }
