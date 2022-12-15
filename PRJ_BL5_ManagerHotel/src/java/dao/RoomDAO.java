@@ -133,9 +133,72 @@ public class RoomDAO extends DBContext {
         return null;
     }
 
+    public Account updatebook(String rid) {
+        String sql = "UPDATE Booking\n"
+                + "SET status = 0\n"
+                + "WHERE booking.bid= ?;";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setBoolean(1, true);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public ArrayList<Room> SearchRoomTypeDetails(String txt) {
+        ArrayList<Room> room = new ArrayList<>();
+        try {
+            String sql = "SELECT \n"
+                    + "hotel.hid, hotel.adress, hotel.phone, hotel.description, hotel.imageURL, \n"
+                    + "room.rid, room.hotelID , hotel.name as hname, room.name as rname, room.roomtype, room.quantity, room.price, \n"
+                    + "room.description as rdescription, room.status, room.imageURL as rimageURL,\n"
+                    + "type.name, type.tid\n"
+                    + "FROM hotel\n"
+                    + "INNER JOIN room ON hotel.hid = room.hotelID\n"
+                    + "INNER join type on hotel.typeid = type.tid\n"
+                    + "where room.roomtype like ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + txt + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Room r = new Room();
+                Hotel h = new Hotel();
+                Type t = new Type();
+
+                h.setHid(rs.getInt("hid"));
+                h.setHname(rs.getString("name"));
+                h.setAdress(rs.getString("adress"));
+                h.setPhone(rs.getString("phone"));
+                h.setDescription(rs.getString("description"));
+                h.setImageURL(rs.getString("imageURL"));
+
+                r.setRid(rs.getInt("rid"));
+                r.setHotelid(rs.getInt("hotelID"));
+                r.setRname(rs.getString("rname"));
+                r.setRoomtype(rs.getString("roomtype"));
+                r.setQuantity(rs.getInt("quantity"));
+                r.setPrice(rs.getInt("price"));
+                r.setRdescription(rs.getString("rdescription"));
+                r.setStatus(rs.getBoolean("status"));
+                r.setRimageURL((rs.getString("rimageURL")));
+                r.setHotel(h);
+
+                t.setTid(rs.getInt("tid"));
+                t.setName(rs.getString("name"));
+                r.setType(t);
+
+                room.add(r);
+            }
+        } catch (SQLException ex) {
+        }
+        return room;
+    }
+
     public static void main(String[] args) {
         RoomDAO pro = new RoomDAO();
-        System.out.println("" + pro.getHotelDetailsbyRoom(1));
+        System.out.println("" + pro.SearchRoomTypeDetails("king"));
     }
 
 }

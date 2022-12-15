@@ -51,7 +51,7 @@
                                         <h3> Số lượng người:${a.numPeople}</h3>
                                     </div>
                                     <h4>Trạng thái: ${a.status?"Đã đặt thành công":"Đã hủy"} </h4>
-                                    <a href=""><h1 style="color: pink">Hủy phòng</h1></a>
+                                    <a href="cancel"><h1 style="color: pink">Hủy phòng</h1></a>
                                 </div>
                             </div>
                         </div>

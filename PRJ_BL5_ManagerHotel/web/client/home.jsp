@@ -40,8 +40,8 @@
                         <form class="form_book">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="date">Địa điểm</label>
-                                    <input class="book_n" placeholder="Bạn muốn đi đâu" type="text" name="">
+                                    <label class="date">Thể loại</label>
+                                    <input class="book_n" placeholder="Tìm kiếm loại phòng" type="text" name="">
                                 </div>
                                 <div class="col-md-6">
                                     <button class="book_btn">Tìm kiếm</button>
